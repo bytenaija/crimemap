@@ -16,15 +16,15 @@
 router.post("/crimes", user.verifyToken, crimes.addCrime);
  
 //return a crime based on ID
-router.get("/crime/:crimeId", crimes.findOne);
+router.get("/crime/:crimeId", user.verifyToken, crimes.findOne);
 
 
 //update a crime
-router.put("/crime/:crimeId", crimes.editCrime);
+router.put("/crime/:crimeId", user.verifyToken, crimes.editCrime);
 
 
 //delete a crime
-router.delete("/crime/:crimeId", crimes.delete);
+router.delete("/crime/:crimeId", user.verifyToken, crimes.delete);
 
 /*
 //return filter of crimes based on params
